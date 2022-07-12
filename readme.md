@@ -36,16 +36,21 @@
       8. InternalRow
       9. Raw vs InternalRaw
    3. High level API: DataSet
-   4. Spark Optimisation 
+   4. Spark Optimisation
+      1. DPP
+      2. AQE
+      3. Join optimisation
    5. Spark Testing
    6. Spark ML
 4. Spark Streaming
    1. Spark Streaming
    2. Spark Structure Streaming
-   3. Kafka Spark Cassandra pipeline
-   4. State full streaming processing
-   5. Flink Streaming analytics Low API
-   6. Flink Streaming analytics High API
+   3. Kafka Spark streaming vs batch vs Streaming
+   4. Spark streaming checkpointing
+   5. Cassandra pipeline
+   6. State full streaming processing
+   7. Flink Streaming analytics Low API
+   8. Flink Streaming analytics High API
 5. Spark Loading Data 
    1. HDFS, S3, Local File System
    2. Data Formats
@@ -58,3 +63,5 @@
    3. CI/CD
    4. 
 
+Links:
+https://towardsdatascience.com/strategies-of-spark-join-c0e7b4572bcf
