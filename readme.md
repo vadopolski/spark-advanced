@@ -40,6 +40,7 @@
       1. DPP
       2. AQE
       3. Join optimisation
+      4. Skew Joins
    5. Spark Testing
    6. Spark ML
 4. Spark Streaming
