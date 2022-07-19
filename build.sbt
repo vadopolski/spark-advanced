@@ -31,8 +31,8 @@ libraryDependencies ++= Seq(
 
   "org.scalikejdbc"         %% "scalikejdbc"                          % "3.5.0"   % Test,
   "org.scalikejdbc"         %% "scalikejdbc-test"                     % "3.5.0"   % Test,
-  "com.dimafeng"            %% "testcontainers-scala-postgresql"      % "0.38.7"  % Test,
-  "com.dimafeng"            %% "testcontainers-scala-scalatest"       % "0.38.7"  % Test,
+  "com.dimafeng"            %% "testcontainers-scala-postgresql"      % "0.40.8"  % Test,
+  "com.dimafeng"            %% "testcontainers-scala-scalatest"       % "0.40.8"  % Test,
   "org.flywaydb"            % "flyway-core"                         % "7.3.2",
-  "org.postgresql"          % "postgresql"                            % "42.2.2" ,
+  "org.postgresql"          % "postgresql"                            % "42.3.6" ,
 )
