@@ -1,6 +1,6 @@
 package ch3batch.highlevel
 
-import org.apache.spark.sql.functions.{broadcast, col, count, desc_nulls_first, max, mean, min, round}
+import org.apache.spark.sql.functions.{broadcast, col, count, desc_nulls_first, max, mean, min, round, to_json}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SaveMode, SparkSession}
 import org.apache.spark.storage.StorageLevel.DISK_ONLY
 
