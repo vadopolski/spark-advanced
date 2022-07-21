@@ -76,10 +76,10 @@ HomeWork from current
     1. Promo of Batch Homework, knowledge for that | Checking architecture 
     2. Checking Homework 2 and promo Homework 1
     3. Low level API: RDD
-       1. Partitions
-       2. Partitioner
-       3. Iterator
-       4. Spark DSL
+       1. Iterator
+       2. RDD creating path: compute() and getPartitions() 
+       3. Partitions
+       4. Partitioner: Hash and Range
        5. Dependencies: wide and narrow
        6. Persist vs CheckPoint
        7. Query Plan

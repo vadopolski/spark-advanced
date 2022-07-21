@@ -1,32 +1,64 @@
 1. Module 0 - Scala
    1. Write function - def toJSON(Iterator[InternalRaw]): Iterator[String] (example find in Spark - DataSet, json method)
-   2. 
-2. 
-3. Module 1 - RDD
-    1. Find dependencies, partitions
-    2. Find popular time for orders
-4. Module 2 - DataFrame + DataSet
-    1. Find most popular boroughs for orders
-    2. Find distance distribution for orders grouped by boroughs
-    3. Get Homework from
-5. Module 3 - External and Connectors
+   2. Using libs for parsing JSON write code which find 
+   3. Theory
+      1. var and val, val (x, x), lazy val, [transient lazy val](http://fdahms.com/2015/10/14/scala-and-the-transient-lazy-val-pattern/)
+      2. type and Type, (Nil, null, None, Null, Nothing, Unit)
+      3. class, object (case), abstract class, trait  
+      4. Generic, ClassTag
+      5. Pattern matching and if the else construction
+      6. Mutable and Immutable collection, Iterator
+      7. Monads (Option, Either, Try, Future, ....)
+      8. map, flatMap, for comprehension
+      9. Implicits,
+      10. Scala function, methods, lambda
+      11. Scala sbt, assembly
+      12. Encoder, Product
+      13. Scala libs
+2. Module 1 - RDD
+    1. [Exercise find popular time for orders](src/main/scala/ch3batch/lowlevel/DemoRDD.scala)
+    2. Theory RDD api:
+       1. RDD creating api: from array, from file. from DS
+       2. RDD base operations: map, flatMap, filter, reduceByKey, sort 
+       3. Time parse libs
+    3. [Exercise find dependencies](src/main/scala/ch3batch/lowlevel/FindDependencies.scala)
+    4. [Exercise make join without shuffle](src/main/scala/ch3batch/lowlevel/Join.scala)
+    5. Theory RDD under the hood:
+       1. Iterator + mapPartitions()
+       2. RDD creating path: compute() and getPartitions()
+       3. Partitions
+       4. Partitioner: Hash and Range
+       5. Dependencies: wide and narrow
+       6. Joins: inner, cogroup, join without shuffle
+       7. Persist vs CheckPoint
+       8. Query Plan
+3. Module 2 - DataFrame & DataSet, Spark DSL & Spark SQL 
+    1. [Exercise Find most popular boroughs for orders](src/main/scala/ch3batch/highlevel/DemoDataFrame.scala)
+    2. Theory DataFrame api:
+       1. 
+    3. [Find distance distribution for orders grouped by boroughs](src/main/scala/ch3batch/highlevel/DemoDataSet.scala)
+    4. Theory DataSet api:
+       1. 
+    5. Get Homework from prev training
+    6. 
+4. Module 3 - External and Connectors
     1. Write your own connectors
-    2. Write UDF for joining
-6. Module 4 - Spark optimisation
+    2. Write UDF for joining with cassandra
+    3. 
+5. Module 4 - Spark optimisation
     1. Compare crimes counting: SortMerge Join, BroadCast, BlumFilter
-7. Module 5 - Spark streaming
-    1. Build Spark Structure Reading
+    2. Resolve problem with a skew join
+    3. Build UDF for 
+6. Module 5 - Spark streaming
+    1. Build Spark Structure Reading Kafka
     2. Build Spark Structure Using State
-    3. Build Spark Structure Writing
-8. Module 6 - Spark Cluster
+    3. Build Spark Structure Writing Cassandra
+7. Module 6 - Spark Cluster
     1. Build config with allocation
     2. Compare several workers
 
 
 
-
-1. Module 1 - RDD
-   1. Find dependencies, partitions
 
 
 

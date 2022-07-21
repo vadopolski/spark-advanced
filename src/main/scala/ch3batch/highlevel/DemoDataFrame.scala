@@ -9,6 +9,16 @@ import java.util.Properties
 
 object DemoDataFrame extends App {
 
+  /**
+   * Create first DataFrame from the Parquet actual trip data file (src/main/resources/data/yellow_taxi_jan_25_2018).
+   * Load data into a second DataFrame from a csv trip reference file (src/main/resources/data/taxi_zones.csv).
+   * Using DSL and two this dataframes build a table that will show which areas are the most popular for bookings.
+   * Display the result on the screen and write it to the Parquet file.
+   *
+   * Result: Data with the resulting table should appear in the console, a file should appear in the file system.
+   *
+   * */
+
   import ch3batch.ReadWriteUtils._
 
   implicit val spark = SparkSession
@@ -21,12 +31,7 @@ object DemoDataFrame extends App {
     taxiFactsDF
       .join(broadcast(taxiZoneDF), col("DOLocationID") === col("LocationID"), "left")
       .groupBy(col("Borough"))
-      .agg(
-        count("*").as("total trips"),
-        round(min("trip_distance"), 2).as("min distance"),
-        round(mean("trip_distance"), 2).as("mean distance"),
-        round(max("trip_distance"), 2).as("max distance")
-      )
+      .count().as("total trips")
       .orderBy(col("total trips").desc)
 
   def processTaxiDataSQL(taxiFactsDF: DataFrame, taxiZoneDF: DataFrame): DataFrame = {
