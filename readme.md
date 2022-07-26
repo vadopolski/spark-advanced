@@ -86,14 +86,15 @@ HomeWork from current
        8. Physical operator
     4. High level API: DataFrame
        1. Catalyst Optimiser: Logical & Physical plans
-       2. Raw vs InternalRaw
-       3. Spark DSL
-       4. Spark SQL
-       5. Window functions
-       6. Spark Scala UDF + Anti-patterns
-       7. Creating DataFrame
-       8. InternalRow
-       9. Raw vs InternalRaw
+       2. Codegen
+       3. Raw vs InternalRaw
+       4. Spark DSL
+       5. Spark SQL
+       6. Window functions
+       7. Spark Scala UDF + Anti-patterns
+       8. Creating DataFrame
+       9. InternalRow
+       10. Raw vs InternalRaw
     5. High level API: DataSet
     6. Spark Optimisation
        1. DPP

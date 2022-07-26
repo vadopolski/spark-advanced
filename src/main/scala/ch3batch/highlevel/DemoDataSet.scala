@@ -1,7 +1,7 @@
 package ch3batch.highlevel
 
 import org.apache.spark.sql.functions.{broadcast, col}
-import org.apache.spark.sql.{DataFrame, Dataset, SparkSession}
+import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
 
 object DemoDataSet extends App {
   /**
@@ -42,12 +42,19 @@ object DemoDataSet extends App {
     .csv("src/main/resources/taxi_zones.csv")
     .as[TaxiZone]
 
-  taxiFactsDS
-    .filter(x => x.DOLocationID != 0)
+  val result: Dataset[Row] = taxiFactsDS
     .join(broadcast(taxiZoneDS), col("DOLocationID") === col("LocationID"), "left")
+    .as[Result]
+//    show the plan because its not optimised
+//    .filter(x => x.DOLocationID != 0)
+    .filter(col("DOLocationID") =!= 0)
     .groupBy(col("Borough"))
     .count()
     .orderBy(col("count").desc)
+
+  result.explain(true)
+
+  result
     .show()
 
 }

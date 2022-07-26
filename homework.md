@@ -30,30 +30,40 @@
        4. Partitioner: Hash and Range
        5. Dependencies: wide and narrow
        6. Joins: inner, cogroup, join without shuffle
-       7. Persist vs CheckPoint
-       8. Query Plan
+       7. Query Plan
 3. Module 2 - DataFrame & DataSet, Spark DSL & Spark SQL 
     1. [Exercise Find most popular boroughs for orders](src/main/scala/ch3batch/highlevel/DemoDataFrame.scala)
-    2. Theory DataFrame api:
-       1. 
-    3. [Find distance distribution for orders grouped by boroughs](src/main/scala/ch3batch/highlevel/DemoDataSet.scala)
-    4. Theory DataSet api:
-       1. 
-    5. Get Homework from prev training
-    6. 
-4. Module 3 - External and Connectors
+    2. [Find distance distribution for orders grouped by boroughs](src/main/scala/ch3batch/highlevel/DemoDataSet.scala)
+    3. Theory DataFrame, DataSet api:
+       1. Creating DataFrame: memory, from file (HDFS, S3, FS) (Avro, Orc, Parquet)
+       2. Spark DSL: Join broadcast, Grouped operations
+       3. Spark SQL: Window functions, single partitions, 
+       4. Scala UDF Problem solving
+       5. Spark catalog, ....,
+    4. Recreate code using plans [Reverse engineering](src/main/scala/ch3batch/highlevel/dataframe.scala)
+    5. Theory 
+       1. Catalyst Optimiser: Logical & Physical plans
+       2. Codegen
+       3. Persist vs Cache vs Checkpoint
+       4. Creating DataFrame Path
+       5. Raw vs InternalRaw
+       6. InternalRow
+       7. Raw vs InternalRaw
+4. Module 4 - Spark optimisation
+    1. [Compare speed, size RDD, DataFrame, DataSet](src/main/scala/ch3batch/highlevel/DataFrameVsRDD.scala)
+    2. Compare crimes counting: SortMerge Join, BroadCast, BlumFilter
+    3. Resolve problem with a skew join
+    4. Build UDF for
+5. Module 3 - External and Connectors
     1. Write your own connectors
     2. Write UDF for joining with cassandra
-    3. 
-5. Module 4 - Spark optimisation
-    1. Compare crimes counting: SortMerge Join, BroadCast, BlumFilter
-    2. Resolve problem with a skew join
-    3. Build UDF for 
-6. Module 5 - Spark streaming
+    3.
+
+6. 7. Module 5 - Spark streaming
     1. Build Spark Structure Reading Kafka
     2. Build Spark Structure Using State
     3. Build Spark Structure Writing Cassandra
-7. Module 6 - Spark Cluster
+8. Module 6 - Spark Cluster
     1. Build config with allocation
     2. Compare several workers
 

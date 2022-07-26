@@ -1,5 +1,7 @@
 package ch3batch.highlevel
 
+import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.functions.{broadcast, col, count, desc_nulls_first, max, mean, min, round, to_json}
 import org.apache.spark.sql.{DataFrame, Dataset, Row, SaveMode, SparkSession}
 import org.apache.spark.storage.StorageLevel.DISK_ONLY
@@ -27,12 +29,48 @@ object DemoDataFrame extends App {
     .config("spark.master", "local")
     .getOrCreate()
 
+
+  /**
+   * How to create DataFrame?
+   * */
+
+  val taxiFactsDF: DataFrame = readParquet("src/main/resources/yellow_taxi_jan_25_2018").persist(DISK_ONLY)
+  val taxiZoneDF: DataFrame = readCSV("src/main/resources/taxi_zones.csv").cache()
+
+  taxiFactsDF.count()
+  taxiZoneDF.count()
+
+  implicit val sc = spark.sparkContext
+
+  val result: DataFrame = processTaxiData(taxiFactsDF, taxiZoneDF)
+
+  /**
+   * How to check to see all execution plans
+   * */
+  result.explain(true)
+
+  result.show()
+
+  /**
+   * How to get all dependencies from DataFrame?
+   * */
+  val rdd: RDD[InternalRow] = result.queryExecution.toRdd
+  println(s"current dependencies is ${rdd.dependencies}")
+  println(s"current dependencies is ${rdd.dependencies.head.rdd.dependencies}")
+
+
+
+  processTaxiDataSQL(taxiFactsDF, taxiZoneDF).show()
+
+  Thread.sleep(10000000)
+
+
   def processTaxiData(taxiFactsDF: DataFrame, taxiZoneDF: DataFrame): DataFrame =
     taxiFactsDF
       .join(broadcast(taxiZoneDF), col("DOLocationID") === col("LocationID"), "left")
       .groupBy(col("Borough"))
-      .count().as("total trips")
-      .orderBy(col("total trips").desc)
+      .count()
+      .orderBy(col("count").desc)
 
   def processTaxiDataSQL(taxiFactsDF: DataFrame, taxiZoneDF: DataFrame): DataFrame = {
     taxiFactsDF.createOrReplaceTempView("taxi_facts")
@@ -46,22 +84,6 @@ object DemoDataFrame extends App {
         |GROUP BY Borough
     """.stripMargin)
   }
-
-  val taxiFactsDF: DataFrame = readParquet("src/main/resources/yellow_taxi_from_db").persist(DISK_ONLY)
-  val taxiZoneDF: DataFrame = readCSV("src/main/resources/taxi_zones.csv").cache()
-
-  taxiFactsDF.count()
-  taxiZoneDF.count()
-
-  val result: DataFrame = processTaxiData(taxiFactsDF, taxiZoneDF)
-
-  result.explain(true)
-
-  result.show()
-
-  processTaxiDataSQL(taxiFactsDF, taxiZoneDF).show()
-
-  Thread.sleep(10000000)
 
 
 }
