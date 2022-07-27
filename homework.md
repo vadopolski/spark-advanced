@@ -3,14 +3,14 @@
    2. Using libs for parsing JSON write code which find 
    3. Theory
       1. var and val, val (x, x), lazy val, [transient lazy val](http://fdahms.com/2015/10/14/scala-and-the-transient-lazy-val-pattern/)
-      2. type and Type, (Nil, null, None, Null, Nothing, Unit)
+      2. type and Type, (Nil, None, Null => null, Nothing, Unit => (), Any, AnyRef, AnyVal, String, interpolation
       3. class, object (case), abstract class, trait  
-      4. Generic, ClassTag
+      4. Generic, ClassTag, covariant, contravariant, invariant, F[_], *
       5. Pattern matching and if the else construction
       6. Mutable and Immutable collection, Iterator
-      7. Monads (Option, Either, Try, Future, ....)
-      8. map, flatMap, for comprehension
-      9. Implicits,
+      7. Monads (Option, Either, Try, Future, ....), Try().recovery
+      8. map, flatMap, foreach, for comprehension
+      9. Implicits,private[sql], package
       10. Scala function, methods, lambda
       11. Scala sbt, assembly
       12. Encoder, Product
@@ -38,7 +38,7 @@
        1. Creating DataFrame: memory, from file (HDFS, S3, FS) (Avro, Orc, Parquet)
        2. Spark DSL: Join broadcast, Grouped operations
        3. Spark SQL: Window functions, single partitions, 
-       4. Scala UDF Problem solving
+       4. Scala UDF Problem-solving
        5. Spark catalog, ....,
     4. Recreate code using plans [Reverse engineering](src/main/scala/ch3batch/highlevel/dataframe.scala)
     5. Theory 
@@ -47,8 +47,6 @@
        3. Persist vs Cache vs Checkpoint
        4. Creating DataFrame Path
        5. Raw vs InternalRaw
-       6. InternalRow
-       7. Raw vs InternalRaw
 4. Module 4 - Spark optimisation
     1. [Compare speed, size RDD, DataFrame, DataSet](src/main/scala/ch3batch/highlevel/DataFrameVsRDD.scala)
     2. Compare crimes counting: SortMerge Join, BroadCast, BlumFilter
