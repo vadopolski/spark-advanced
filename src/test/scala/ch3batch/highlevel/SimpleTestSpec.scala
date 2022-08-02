@@ -1,11 +1,11 @@
 package ch3batch.highlevel
 
-import DemoDataFrame.processTaxiData
+import mod3highlevel.DemoDataFrame.processTaxiData
 import org.apache.spark.sql.SparkSession
 import org.scalatest.flatspec.AnyFlatSpec
 
 class SimpleTestSpec extends AnyFlatSpec  {
-  import ch3batch.ReadWriteUtils._
+  import mod3highlevel.ReadWriteUtils._
 
   implicit val spark = SparkSession.builder()
     .config("spark.master", "local")

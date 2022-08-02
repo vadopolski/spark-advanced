@@ -1,7 +1,7 @@
 package ch3batch.highlevel
 
-import DemoDataFrame.processTaxiData
-import ch3batch.model.TaxiZone
+import mod3highlevel.DemoDataFrame.processTaxiData
+import mod3highlevel.model.TaxiZone
 import org.apache.spark.sql.test.SharedSparkSession
 import org.scalacheck.Arbitrary
 import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
@@ -11,7 +11,7 @@ import org.scalatestplus.scalacheck.ScalaCheckPropertyChecks.forAll
 class GeneratedSparkTestSpec extends SharedSparkSession {
 
   import testImplicits._
-  import ch3batch.model._
+  import mod3highlevel.model._
 
   test("Thank you Captain") {
     forAll { l: List[String] =>

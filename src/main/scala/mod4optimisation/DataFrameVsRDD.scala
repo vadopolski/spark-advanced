@@ -1,4 +1,4 @@
-package ch4optimisation
+package mod4optimisation
 
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.storage.StorageLevel

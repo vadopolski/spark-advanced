@@ -1,4 +1,4 @@
-package ch3batch.lowlevel
+package mod1rdd.lowlevel
 
 object Coalesce extends App {
 

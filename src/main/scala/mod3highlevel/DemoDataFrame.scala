@@ -1,13 +1,10 @@
-package ch3batch.highlevel
+package mod3highlevel
 
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.catalyst.InternalRow
-import org.apache.spark.sql.functions.{broadcast, col, count, desc_nulls_first, max, mean, min, round, to_json}
-import org.apache.spark.sql.{DataFrame, Dataset, Row, SaveMode, SparkSession}
+import org.apache.spark.sql.functions.{broadcast, col}
+import org.apache.spark.sql.{DataFrame, SparkSession}
 import org.apache.spark.storage.StorageLevel.DISK_ONLY
-
-import java.util.Properties
-
 
 object DemoDataFrame extends App {
 
@@ -21,8 +18,6 @@ object DemoDataFrame extends App {
    *
    * */
 
-  import ch3batch.ReadWriteUtils._
-
   implicit val spark = SparkSession
     .builder()
     .appName("Introduction to RDDs")
@@ -33,6 +28,7 @@ object DemoDataFrame extends App {
   /**
    * How to create DataFrame?
    * */
+  import mod3highlevel.ReadWriteUtils._
 
   val taxiFactsDF: DataFrame = readParquet("src/main/resources/yellow_taxi_jan_25_2018").persist(DISK_ONLY)
   val taxiZoneDF: DataFrame = readCSV("src/main/resources/taxi_zones.csv").cache()
@@ -57,7 +53,6 @@ object DemoDataFrame extends App {
   val rdd: RDD[InternalRow] = result.queryExecution.toRdd
   println(s"current dependencies is ${rdd.dependencies}")
   println(s"current dependencies is ${rdd.dependencies.head.rdd.dependencies}")
-
 
 
   processTaxiDataSQL(taxiFactsDF, taxiZoneDF).show()

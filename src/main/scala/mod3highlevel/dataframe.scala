@@ -1,6 +1,5 @@
-package ch3batch.highlevel
+package mod3highlevel
 
-import ch3batch.highlevel.DemoDataSet.spark
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.catalyst.plans.logical.LogicalPlan
 import org.apache.spark.sql.internal.SQLConf
@@ -341,8 +340,6 @@ object dataframe extends App {
    */
 
   spark.sessionState.analyzer.postHocResolutionRules
-
-  import org.apache.spark.sql.execution.analysis.DetectAmbiguousSelfJoin
   // responsible for correct column naming
 
   spark.sessionState.conf.getConf(SQLConf.CBO_ENABLED)
@@ -354,8 +351,6 @@ object dataframe extends App {
 
 
   spark.sessionState.optimizer.nonExcludableRules
-
-  import org.apache.spark.sql.catalyst.optimizer.EliminateDistinct
 
   /**
    * res31: Seq[String] = List(org.apache.spark.sql.catalyst.optimizer.EliminateDistinct, org.apache.spark.sql.catalyst.optimizer.EliminateResolvedHint,
@@ -378,8 +373,6 @@ object dataframe extends App {
    * */
 
   // here your can see push down aggregation and filters
-
-  import org.apache.spark.sql.execution.datasources.v2.V2ScanRelationPushDown
 
   spark.sessionState.planner.extraPlanningStrategies
   //  Seq[org.apache.spark.sql.Strategy] =

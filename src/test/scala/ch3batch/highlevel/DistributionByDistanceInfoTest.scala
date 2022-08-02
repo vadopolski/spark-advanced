@@ -1,7 +1,7 @@
 package ch3batch.highlevel
 
 
-import ch3batch.highlevel.PostgresWrite._
+import mod3highlevel.PostgresWrite._
 import com.dimafeng.testcontainers.{ForAllTestContainer, PostgreSQLContainer}
 import org.apache.spark.sql.test.SharedSparkSession
 import org.scalatest.matchers.should.Matchers

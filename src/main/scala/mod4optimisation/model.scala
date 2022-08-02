@@ -1,4 +1,4 @@
-package ch4optimisation
+package mod4optimisation
 
 object model {
   case class Laptop(registration: String, make: String, model: String, procSpeed: Double)

@@ -1,6 +1,5 @@
-package ch3batch.lowlevel
+package mod1rdd.lowlevel
 
-import ch3batch.model._
 import org.apache.spark.{Dependency, SparkContext}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.functions.{col, desc, desc_nulls_first}
@@ -25,7 +24,8 @@ object DemoRDD extends App {
   val sc: SparkContext = spark.sparkContext
 
   import spark.implicits._
-  import ch3batch.model._
+  import mod3highlevel.model._
+
 
   val value = sc.parallelize('a' to 'z', 6)
 

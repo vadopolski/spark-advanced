@@ -16,13 +16,13 @@
       12. Encoder, Product
       13. Scala libs
 2. Module 1 - RDD
-    1. [Exercise find popular time for orders](src/main/scala/ch3batch/lowlevel/DemoRDD.scala)
+    1. [Exercise find popular time for orders](src/main/scala/mod1rdd/lowlevel/DemoRDD.scala)
     2. Theory RDD api:
        1. RDD creating api: from array, from file. from DS
        2. RDD base operations: map, flatMap, filter, reduceByKey, sort 
        3. Time parse libs
-    3. [Exercise find dependencies](src/main/scala/ch3batch/lowlevel/FindDependencies.scala)
-    4. [Exercise make join without shuffle](src/main/scala/ch3batch/lowlevel/Join.scala)
+    3. [Exercise find dependencies](src/main/scala/mod1rdd/lowlevel/FindDependencies.scala)
+    4. [Exercise make join without shuffle](src/main/scala/mod1rdd/lowlevel/Join.scala)
     5. Theory RDD under the hood:
        1. Iterator + mapPartitions()
        2. RDD creating path: compute() and getPartitions()
@@ -52,12 +52,12 @@
     2. Compare crimes counting: SortMerge Join, BroadCast, BlumFilter
     3. Resolve problem with a skew join
     4. Build UDF for
-5. Module 3 - External and Connectors
+5. Module 5 - External and Connectors
     1. Write your own connectors
     2. Write UDF for joining with cassandra
     3.
 
-6. 7. Module 5 - Spark streaming
+6. 7. Module 6 - Spark streaming
     1. Build Spark Structure Reading Kafka
     2. Build Spark Structure Using State
     3. Build Spark Structure Writing Cassandra

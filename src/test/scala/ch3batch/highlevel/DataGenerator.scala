@@ -5,7 +5,7 @@ import org.scalacheck.Gen.posNum
 
 
 object DataGenerator {
-  import ch3batch.model._
+  import mod3highlevel.model._
 
   implicit val genString: Gen[String] =
     Gen.listOfN[Char](14, Gen.alphaChar).map(_.mkString).filter(x => x.nonEmpty && x != null)

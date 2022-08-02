@@ -1,4 +1,4 @@
-package ch3batch.lowlevel
+package mod1rdd.lowlevel
 
 import org.apache.spark.sql.SparkSession
 
